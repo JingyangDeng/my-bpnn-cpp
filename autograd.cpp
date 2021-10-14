@@ -71,7 +71,7 @@ public:
 
     void forward(const vector<vector<double>>& input) {
         this->input = input;
-        addmm(weight, input, output);
+        linear(weight, input, output);
     }
 
     double grad_norm() {
