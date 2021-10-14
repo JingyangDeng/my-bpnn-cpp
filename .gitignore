@@ -1,0 +1,5 @@
+*.txt
+*hw*
+main
+.vscode/
+.ccls-cache/
