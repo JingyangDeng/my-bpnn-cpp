@@ -5,7 +5,7 @@
 
 #include "abstract/basic_function.h"
 #include "abstract/parametrized_function.h"
-#define ALPHA 0.1
+#define ALPHA 5.
 #define MAX 1000
 
 class Linear : public ParametrizedFunction, public BasicFunction {
