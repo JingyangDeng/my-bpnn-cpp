@@ -1,32 +1,32 @@
+#include <ctime>
 #include <iostream>
-#include <vector>
 
-#include "data_generator.cpp"
-#include "model.cpp"
+#include "model/bpnn.h"
+#include "model/bprelunn.h"
+#include "utils/data_generator.h"
 #define LR 3e-3  // LR = 1e-4 when using ReLU
 #define EPS 1e-2
-using namespace std;
 
 int main() {
     srand(time(NULL));
     DataGenerator* g = new DataGenerator("data.txt");
-    vector<int> neurons = {2, 4, 1};
+    std::vector<int> neurons = {2, 4, 1};
 
-    cout << "architecture of network: ";
+    std::cout << "architecture of network: ";
     for (int i = 0; i < (int)neurons.size(); i++)
-        cout << neurons[i] << " ";
-    cout << endl << "learning rate = " << LR << " eps = " << EPS << endl << endl;
+        std::cout << neurons[i] << " ";
+    std::cout << std::endl << "learning rate = " << LR << " eps = " << EPS << std::endl << std::endl;
 
     Model* model = new BPNN(neurons);
     // Model* model = new BPReLUNN(neurons);
 
-    cout << "initial params:" << endl;
+    std::cout << "initial params:" << std::endl;
     model->show_params();
 
     model->train(g->train_input, g->train_target, EPS, LR);
     model->test(g->test_input, g->test_target);
 
-    cout << endl << "final params:" << endl;
+    std::cout << std::endl << "final params:" << std::endl;
     model->show_params();
 
     delete g;

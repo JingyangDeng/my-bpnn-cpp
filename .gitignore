@@ -1,5 +1,5 @@
 *.txt
-*hw*
+*.o
 main
 .vscode/
 .ccls-cache/
