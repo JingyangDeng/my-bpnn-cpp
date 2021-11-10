@@ -1,9 +1,11 @@
 *.o
 main
+build/
 
 .vscode/
 .ccls-cache/
 
 *.txt
+!CMakeLists.txt
 *hw*
 
